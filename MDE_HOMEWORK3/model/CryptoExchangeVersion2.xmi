@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cryptoExchangeVersion2:CryptoExchange
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cryptoExchangeVersion2="https://cryptoExchangeVersion2/2.0"
+    xsi:schemaLocation="https://cryptoExchangeVersion2/2.0 cryptoExchangeModelVersion2.ecore"
+    ip="123.0.1"
+    domainName="www.doddy"
+    name="Doddy">
+  <subSystem>
+    <accounts
+        id="1">
+      <transferRequest
+          amount="433.0"
+          token="AWE"
+          destination="//@subSystem.0/@accounts.0"
+          id="5"/>
+      <wallet
+          walletId="2"/>
+    </accounts>
+    <orders
+        amount="46.0"
+        leverage="0x2"
+        account="//@subSystem.0/@accounts.0"
+        tokenA="FRT"
+        tokenB="AWE"/>
+    <savingOrders
+        id="1"
+        amount="56.0"
+        matureDate="2012-08-07T00:00:00.000+0300"
+        interest="45.0"
+        account="//@subSystem.0/@accounts.0"
+        token="FRT"/>
+    <tokenNetworks
+        chainId="1"
+        rpc="rpc"
+        name="astr"/>
+  </subSystem>
+  <tokens name="FRT"
+      address="12"
+      decimal="1"
+      tokenNetwork="astr"/>
+  <tokens name="AWE"
+      address="123"
+      decimal="1"
+      tokenNetwork="astr"/>
+</cryptoExchangeVersion2:CryptoExchange>

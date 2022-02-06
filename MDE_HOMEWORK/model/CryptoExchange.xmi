@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cryptoExchangeVersion1:CryptoExchange
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cryptoExchangeVersion1="https://cryptoExchangeVersion1/1.0"
+    xsi:schemaLocation="https://cryptoExchangeVersion1/1.0 cryptoExchangeModelVersion1.ecore"
+    ip="127.0.0.1"
+    domainName="www.jik.com"
+    name="JIK">
+  <subSystem>
+    <accounts
+        id="2">
+      <tokensBalance
+          balance="700.0"
+          token="BTC"/>
+      <tokensBalance
+          balance="80.0"
+          token="ETH"/>
+      <transferRequest
+          amount="700.0"
+          token="ETH"
+          destination="//@subSystem.0/@accounts.0"
+          id="90"/>
+    </accounts>
+    <tokenPairs
+        price="890.0"
+        tokenA="BTC"
+        tokenB="ETH"
+        name="BTC/ETH"/>
+    <orders
+        price="89.0"
+        amount="900.0"
+        account="//@subSystem.0/@accounts.0"
+        tokenPair="BTC/ETH"/>
+    <savingOrders
+        id="3"
+        amount="300.0"
+        matureDate="2022-09-09T00:00:00.000+0300"
+        interest="60.0"
+        account="//@subSystem.0/@accounts.0"
+        token="ETH"/>
+  </subSystem>
+  <subSystem
+      name="margin">
+    <accounts
+        id="4">
+      <tokensBalance
+          balance="800.0"
+          token="VVC"/>
+      <tokensBalance
+          balance="98.0"
+          token="ETH"/>
+      <transferRequest
+          amount="890.0"
+          token="OBD"
+          destination="//@subSystem.0/@accounts.0"
+          id="09"/>
+    </accounts>
+    <tokenPairs
+        price="50.0"
+        tokenA="VVC"
+        tokenB="ETH"
+        name="VVC/ETH"/>
+    <orders
+        amount="100.0"
+        type="leverageLong"
+        account="//@subSystem.0/@accounts.0"
+        tokenPair="VVC/ETH"/>
+  </subSystem>
+  <tokens name="BTC"
+      address="0xx1"
+      decimal="1"
+      tokenNetwork="public"/>
+  <tokens name="ETH"
+      address="0xx2"
+      decimal="1"
+      tokenNetwork="public"/>
+  <tokens name="OBD"
+      address="009"
+      decimal="1"
+      tokenNetwork="public"/>
+  <tokens name="VVC"
+      address="080"
+      decimal="1"
+      tokenNetwork="public"/>
+  <tokenNetworks
+      chainId="123"
+      rpc="rpc1"
+      name="public"/>
+  <tokenNetworks
+      chainId="6"
+      rpc="rpc3"
+      name="private"/>
+</cryptoExchangeVersion1:CryptoExchange>

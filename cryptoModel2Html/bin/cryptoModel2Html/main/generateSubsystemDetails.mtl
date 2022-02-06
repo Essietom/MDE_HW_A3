@@ -1,0 +1,132 @@
+[comment encoding = UTF-8 /]
+[module generateSubsystemDetails('https://cryptoExchangeVersion1/1.0')]
+[import cryptoModel2Html::main::generateAccountDetails /]
+
+
+[template public subSystemPages(subsystem : SubSystem)]
+[comment @main/]
+[file (subsystem.name + '.html', false, 'UTF-8')]
+<html>
+	<head>
+		<title>[subsystem.name/]</title>
+		<style>
+			table, th, td {
+			  border: 1px solid #B7C4DA;
+			}
+		</style>
+	</head>
+
+	<body>
+		<center style="height:70px"> </center>	
+		<center style="font-size:50">[subsystem.name + ' Subsystem '/]</center></br></br>	
+
+		<center> This is [subsystem.name/] crypto exchange, on this platform, our users can buy and sell crypto currency, they can also save, transfer. Feel free to explore our options</center>	
+		</br></br></br>
+
+		<center style="font-size:30"><u>Accounts</u></center>
+
+		<center style="margin:20px 50px 0px 50px;">
+		<table style="width:100%; text-align:center">
+				<tr>
+				[for (account : Account | subsystem.accounts)]
+					<th><a href="[ 'Account'+account.id.replaceAll(' ', '') +'.html'/]">['Account'+ account.id/]</a></th>
+				[/for]
+				</tr>
+		</table>
+		</center>
+
+
+
+		<center style="font-size:30"><u>Our Token Pairs</u></center>
+		<center>  These are the tokens that users can exchange</center>	
+		<center style="margin:20px 50px 0px 50px;">
+		<table style="width:100%; text-align:center">
+				<tr>
+					<th>Token pair</th>
+					<th>Token pair price</th>
+					<th>Token A</th>
+					<th>Token B</th>
+				</tr>			
+				[for (tp : TokenPair | subsystem.tokenPairs)]
+					[tp.generateTokenPairRow()/]
+				[/for]
+		</table>
+		</center>
+
+
+
+		<center style="font-size:30"><u>Orders</u></center>
+		<center>  These are orders placed in the system to buy and sell</center>	
+		<center style="margin:20px 50px 0px 50px;">
+		<table style="width:100%; text-align:center">
+				<tr>
+					<th>Leverage</th>
+					<th>Price </th>
+					<th>Token Pair</th>
+					<th>Sufficient Balance</th>
+
+				</tr>			
+				[for (ord : Order | subsystem.orders)]
+					[ord.generateOrderRow()/]
+				[/for]
+
+		</table>
+		</center>
+
+
+		<center style="font-size:30"><u>Saving Orders</u></center>
+		<center>  These are savings  in the system</center>	
+		<center style="margin:20px 50px 0px 50px;">
+		<table style="width:100%;  text-align:center">
+				<tr>
+					<th>Account </th>
+					<th>Interest</th>
+					<th>Mature Date </th>
+					<th>Token </th>
+				</tr>			
+				[for (sor : SavingOrder | subsystem.savingOrders)]
+					[sor.generateSavingOrderRow()/]
+				[/for]
+		</table>
+		</center>
+
+
+	</body>
+
+</html>
+[/file]
+[/template]
+
+
+[template private generateTokenPairRow(tokenpair : TokenPair)]
+				<tr>
+					<td>[tokenpair.name/]</td>
+					<td>[tokenpair.price/]</td>
+					<td>[tokenpair.tokenA.name/]</td>
+					<td>[tokenpair.tokenB.name/]</td>
+				</tr>
+[/template]
+
+
+[template private generateOrderRow(order : Order)]
+				<tr>
+					<td>[order.leverage/]</td>
+					<td>[order.price/]</td>
+					<td>[order.tokenPair.name/]</td>
+					<td>[sufficientBal(order)/]</td>
+				</tr>
+[/template]
+
+
+[template private generateSavingOrderRow(savingorder : SavingOrder)]
+				<tr>
+					<td>['Account'+savingorder.account.id/]</td>
+					<td>[savingorder.interest/]</td>
+					<td>[savingorder.matureDate/]</td>
+				</tr>
+[/template]
+
+[comment if tokenpaira.balance is >=  order price, set to sufficient balance else insufficient/]
+[query private getTokenBalance(sOrder:Order) : Set(Real) =  self.account.tokensBalance  -> select(self.account.tokensBalance.token = sOrder.tokenPair.tokenA).balance -> asSet() /]
+[query private sufficientBal(aOrder : Order) : Boolean = getTokenBalance(aOrder) -> sum() > aOrder.price /]
+

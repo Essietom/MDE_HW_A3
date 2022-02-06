@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="generateAccountDetails" nsURI="cryptoModel2Html::main::generateAccountDetails" startHeaderPosition="29" endHeaderPosition="166">
+    <input>
+      <takesTypesFrom href="https://cryptoExchangeVersion1/1.0#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="accountPage" visibility="Public" main="true">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;html>&#xA;&#x9;&lt;head>&#xA;&#x9;&#x9;&lt;title>"/>
+        <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Account">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </source>
+          <argument xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aAccount" referredVariable="/0/accountPage/aAccount">
+              <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="https://cryptoExchangeVersion1/1.0#//Account/id"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/title>&#xA;&#x9;&#x9;&lt;style>&#xA;&#x9;&#x9;&#x9;table, th, td {&#xA;&#x9;&#x9;&#x9;  border: 1px solid #B7C4DA;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&lt;/style>&#xA;&#x9;&lt;/head>&#xA;&#xA;&#x9;&lt;body>&#xA;&#xA;&#x9;&#x9;&lt;center style=&quot;height:70px&quot;> &lt;/center>&#x9;&#xA;&#x9;&#x9;&lt;center style=&quot;font-size:50&quot;>"/>
+        <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Account">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </source>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aAccount" referredVariable="/0/accountPage/aAccount">
+                <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="https://cryptoExchangeVersion1/1.0#//Account/id"/>
+            </argument>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" Details">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/center>&lt;/br>&lt;/br>&#x9;&#xA;&#xA;&#x9;&#x9;&lt;center>  These are information for the selected account&lt;/center>&#x9;&#xA;&#x9;&#x9;&lt;/br>&lt;/br>&lt;/br>&#xA;&#xA;&#x9;&#x9;&lt;center style=&quot;font-size:30&quot;>&lt;u>Token Balances&lt;/u>&lt;/center>&#xA;&#x9;&#x9;&lt;center>  These are the token balances for every token in this account&lt;/center>&#x9;&#xA;&#x9;&#x9;&lt;center style=&quot;margin:20px 50px 0px 50px;&quot;>&#xA;&#x9;&#x9;&lt;table style=&quot;width:100%;text-align:center&quot;>&#xA;&#x9;&#x9;&#x9;&#x9;&lt;tr>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th>Token&lt;/th>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th>Token Balance&lt;/th>&#xA;&#x9;&#x9;&#x9;&#x9;&lt;/tr>&#x9;&#x9;&#x9;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&#x9;"/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/generateTokenBalance">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="tkb" referredVariable="/0/accountPage/%/%.5/tkb">
+              <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;"/>
+          <loopVariable name="tkb">
+            <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(TokenBalance)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aAccount" referredVariable="/0/accountPage/aAccount">
+              <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="https://cryptoExchangeVersion1/1.0#//Account/tokensBalance"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;/table>&#xA;&#x9;&#x9;&lt;/center>&#xA;&#xA;&#xA;&#x9;&#x9;&lt;center style=&quot;font-size:30&quot;>&lt;u>Transfer&lt;/u>&lt;/center>&#xA;&#x9;&#x9;&lt;center>  These are the transfer requests made by this account  &lt;/center>&#x9;&#xA;&#x9;&#x9;&lt;center style=&quot;margin:20px 50px 0px 50px;&quot;>&#xA;&#x9;&#x9;&lt;table style=&quot;width:100%;text-align:center&quot;>&#xA;&#x9;&#x9;&#x9;&#x9;&lt;tr>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th>Token&lt;/th>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th>Transfer Amount&lt;/th>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th>Transfer Type&lt;/th>&#xA;&#x9;&#x9;&#x9;&#x9;&lt;/tr>&#x9;&#x9;&#x9;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&#x9;"/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/generateTransferRequest">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="treq" referredVariable="/0/accountPage/%/%.7/treq">
+              <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;"/>
+          <loopVariable name="treq">
+            <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(TransferRequest)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aAccount" referredVariable="/0/accountPage/aAccount">
+              <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="https://cryptoExchangeVersion1/1.0#//Account/transferRequest"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;/table>&#xA;&#x9;&#x9;&lt;/center>&#xA;&#xA;&#x9;&lt;/body>&#xA;&#xA;&lt;/html>&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Account">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </source>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aAccount" referredVariable="/0/accountPage/aAccount">
+                <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="https://cryptoExchangeVersion1/1.0#//Account/id"/>
+            </argument>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aAccount">
+        <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateTokenBalance">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&lt;tr>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td>"/>
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Token"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="tokenBal" referredVariable="/0/generateTokenBalance/tokenBal">
+            <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="https://cryptoExchangeVersion1/1.0#//TokenBalance/token"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="https://cryptoExchangeVersion1/1.0#//Token/name"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/td>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td>"/>
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="tokenBal" referredVariable="/0/generateTokenBalance/tokenBal">
+          <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="https://cryptoExchangeVersion1/1.0#//TokenBalance/balance"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/td>&#xA;&#x9;&#x9;&#x9;&#x9;&lt;/tr>"/>
+      <parameter name="tokenBal">
+        <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateTransferRequest">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&lt;tr>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td>"/>
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Token"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="transferReq" referredVariable="/0/generateTransferRequest/transferReq">
+            <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="https://cryptoExchangeVersion1/1.0#//TransferRequest/token"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="https://cryptoExchangeVersion1/1.0#//Token/name"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/td>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td>"/>
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="transferReq" referredVariable="/0/generateTransferRequest/transferReq">
+          <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="https://cryptoExchangeVersion1/1.0#//TransferRequest/amount"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/td>&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td>"/>
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ecore:EEnum" href="https://cryptoExchangeVersion1/1.0#//TransferType"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="transferReq" referredVariable="/0/generateTransferRequest/transferReq">
+          <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="https://cryptoExchangeVersion1/1.0#//TransferRequest/type"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/td>&#xA;&#x9;&#x9;&#x9;&#x9;&lt;/tr>"/>
+      <parameter name="transferReq">
+        <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="accountPage">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/accountPage"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aAccount">
+          <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateTokenBalance">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateTokenBalance"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="tokenBal">
+          <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateTransferRequest">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateTransferRequest"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="transferReq">
+          <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="cryptoExchangeVersion1_Account_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="https://cryptoExchangeVersion1/1.0#//Account"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="cryptoExchangeVersion1_TokenBalance_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="cryptoExchangeVersion1_TransferRequest_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(TokenBalance)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(TransferRequest)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//Account"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TokenBalance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://cryptoExchangeVersion1/1.0#//TransferRequest"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/accountPage">
+      <details key="start" value="102"/>
+      <details key="end" value="1529"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/accountPage/%">
+      <details key="start" value="169"/>
+      <details key="end" value="1517"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/accountPage/%/%">
+      <details key="start" value="226"/>
+      <details key="end" value="250"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/accountPage/%/%.1">
+      <details key="start" value="251"/>
+      <details key="end" value="272"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/accountPage/%/%.1/%">
+      <details key="start" value="251"/>
+      <details key="end" value="260"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/accountPage/%/%.1/%.1">
+      <details key="start" value="261"/>
+      <details key="end" value="272"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/accountPage/%/%.1/%.1/aAccount">
+      <details key="start" value="261"/>
+      <details key="end" value="269"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/accountPage/%/%.2">
+      <details key="start" value="274"/>
+      <details key="end" value="452"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/accountPage/%/%.3">
+      <details key="start" value="453"/>
+      <details key="end" value="485"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/accountPage/%/%.3/%">
+      <details key="start" value="453"/>
+      <details key="end" value="474"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/accountPage/%/%.3/%/%">
+      <details key="start" value="453"/>
+      <details key="end" value="462"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/accountPage/%/%.3/%/%.1">
+      <details key="start" value="463"/>
+      <details key="end" value="474"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/accountPage/%/%.3/%/%.1/aAccount">
+      <details key="start" value="463"/>
+      <details key="end" value="471"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/accountPage/%/%.3/%.1">
+      <details key="start" value="475"/>
+      <details key="end" value="485"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/accountPage/%/%.4">
+      <details key="start" value="487"/>
+      <details key="end" value="905"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/accountPage/%/%.5">
+      <details key="start" value="908"/>
+      <details key="end" value="1005"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/accountPage/%/%.5/%">
+      <details key="start" value="960"/>
+      <details key="end" value="965"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/accountPage/%/%.5/%.1">
+      <details key="start" value="966"/>
+      <details key="end" value="992"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/accountPage/%/%.5/%.1/tkb">
+      <details key="start" value="966"/>
+      <details key="end" value="969"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/accountPage/%/%.5/%.2">
+      <details key="start" value="994"/>
+      <details key="end" value="996"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/accountPage/%/%.5/tkb">
+      <details key="start" value="914"/>
+      <details key="end" value="932"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/accountPage/%/%.5/%.3">
+      <details key="start" value="935"/>
+      <details key="end" value="957"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/accountPage/%/%.5/%.3/aAccount">
+      <details key="start" value="935"/>
+      <details key="end" value="943"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/accountPage/%/%.6">
+      <details key="start" value="1006"/>
+      <details key="end" value="1357"/>
+      <details key="line" value="39"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/accountPage/%/%.7">
+      <details key="start" value="1360"/>
+      <details key="end" value="1467"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/accountPage/%/%.7/%">
+      <details key="start" value="1418"/>
+      <details key="end" value="1423"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/accountPage/%/%.7/%.1">
+      <details key="start" value="1424"/>
+      <details key="end" value="1454"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/accountPage/%/%.7/%.1/treq">
+      <details key="start" value="1424"/>
+      <details key="end" value="1428"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/accountPage/%/%.7/%.2">
+      <details key="start" value="1456"/>
+      <details key="end" value="1458"/>
+      <details key="line" value="54"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/accountPage/%/%.7/treq">
+      <details key="start" value="1366"/>
+      <details key="end" value="1388"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/accountPage/%/%.7/%.3">
+      <details key="start" value="1391"/>
+      <details key="end" value="1415"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/accountPage/%/%.7/%.3/aAccount">
+      <details key="start" value="1391"/>
+      <details key="end" value="1399"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/accountPage/%/%.8">
+      <details key="start" value="1468"/>
+      <details key="end" value="1510"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/accountPage/%/%.9">
+      <details key="start" value="176"/>
+      <details key="end" value="207"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/accountPage/%/%.9/%">
+      <details key="start" value="176"/>
+      <details key="end" value="197"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/accountPage/%/%.9/%/%">
+      <details key="start" value="176"/>
+      <details key="end" value="185"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/accountPage/%/%.9/%/%.1">
+      <details key="start" value="186"/>
+      <details key="end" value="197"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/accountPage/%/%.9/%/%.1/aAccount">
+      <details key="start" value="186"/>
+      <details key="end" value="194"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/accountPage/%/%.9/%.1">
+      <details key="start" value="200"/>
+      <details key="end" value="207"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/accountPage/%/%.10">
+      <details key="start" value="216"/>
+      <details key="end" value="223"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/accountPage/aAccount">
+      <details key="start" value="131"/>
+      <details key="end" value="149"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateTokenBalance">
+      <details key="start" value="1531"/>
+      <details key="end" value="1697"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateTokenBalance/%">
+      <details key="start" value="1596"/>
+      <details key="end" value="1614"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateTokenBalance/%.1">
+      <details key="start" value="1615"/>
+      <details key="end" value="1634"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateTokenBalance/%.1/%">
+      <details key="start" value="1615"/>
+      <details key="end" value="1629"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateTokenBalance/%.1/%/tokenBal">
+      <details key="start" value="1615"/>
+      <details key="end" value="1623"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateTokenBalance/%.2">
+      <details key="start" value="1636"/>
+      <details key="end" value="1651"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateTokenBalance/%.3">
+      <details key="start" value="1652"/>
+      <details key="end" value="1668"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateTokenBalance/%.3/tokenBal">
+      <details key="start" value="1652"/>
+      <details key="end" value="1660"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateTokenBalance/%.4">
+      <details key="start" value="1670"/>
+      <details key="end" value="1685"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateTokenBalance/tokenBal">
+      <details key="start" value="1570"/>
+      <details key="end" value="1593"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateTransferRequest">
+      <details key="start" value="1700"/>
+      <details key="end" value="1914"/>
+      <details key="line" value="73"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateTransferRequest/%">
+      <details key="start" value="1774"/>
+      <details key="end" value="1792"/>
+      <details key="line" value="74"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateTransferRequest/%.1">
+      <details key="start" value="1793"/>
+      <details key="end" value="1815"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateTransferRequest/%.1/%">
+      <details key="start" value="1793"/>
+      <details key="end" value="1810"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateTransferRequest/%.1/%/transferReq">
+      <details key="start" value="1793"/>
+      <details key="end" value="1804"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateTransferRequest/%.2">
+      <details key="start" value="1817"/>
+      <details key="end" value="1832"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateTransferRequest/%.3">
+      <details key="start" value="1833"/>
+      <details key="end" value="1851"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateTransferRequest/%.3/transferReq">
+      <details key="start" value="1833"/>
+      <details key="end" value="1844"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateTransferRequest/%.4">
+      <details key="start" value="1853"/>
+      <details key="end" value="1868"/>
+      <details key="line" value="76"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateTransferRequest/%.5">
+      <details key="start" value="1869"/>
+      <details key="end" value="1885"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateTransferRequest/%.5/transferReq">
+      <details key="start" value="1869"/>
+      <details key="end" value="1880"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateTransferRequest/%.6">
+      <details key="start" value="1887"/>
+      <details key="end" value="1902"/>
+      <details key="line" value="77"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateTransferRequest/transferReq">
+      <details key="start" value="1742"/>
+      <details key="end" value="1771"/>
+      <details key="line" value="73"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

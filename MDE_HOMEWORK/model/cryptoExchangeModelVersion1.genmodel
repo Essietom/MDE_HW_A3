@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/MDE_HOMEWORK/src" modelPluginID="MDE_HOMEWORK"
+    modelName="CryptoExchangeModelVersion1" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>cryptoExchangeModelVersion1.ecore</foreignModel>
+  <genPackages prefix="CryptoExchangeVersion1" disposableProviderFactory="true" ecorePackage="cryptoExchangeModelVersion1.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="cryptoExchangeModelVersion1.ecore#//OrderType">
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//OrderType/buy"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//OrderType/sell"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//OrderType/leverageLong"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//OrderType/leverageShort"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="cryptoExchangeModelVersion1.ecore#//LeverageType">
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//LeverageType/_1x"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//LeverageType/_2x"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//LeverageType/_5x"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//LeverageType/_10x"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="cryptoExchangeModelVersion1.ecore#//SubSystemName">
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//SubSystemName/spot"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//SubSystemName/future"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//SubSystemName/margin"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//SubSystemName/saving"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="cryptoExchangeModelVersion1.ecore#//TransferType">
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//TransferType/intraExchange"/>
+      <genEnumLiterals ecoreEnumLiteral="cryptoExchangeModelVersion1.ecore#//TransferType/extraExchange"/>
+    </genEnums>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//CryptoExchange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//CryptoExchange/ip"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//CryptoExchange/domainName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//CryptoExchange/subSystem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//CryptoExchange/tokens"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//CryptoExchange/tokenNetworks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//CryptoExchange/name"/>
+    </genClasses>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//Account">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//Account/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//Account/tokensBalance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//Account/transferRequest"/>
+    </genClasses>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//Order">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//Order/price"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//Order/amount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//Order/leverage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//Order/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//Order/account"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//Order/tokenPair"/>
+    </genClasses>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//SavingOrder">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//SavingOrder/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//SavingOrder/amount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//SavingOrder/matureDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//SavingOrder/interest"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//SavingOrder/account"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//SavingOrder/token"/>
+    </genClasses>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//SubSystem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//SubSystem/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//SubSystem/accounts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//SubSystem/tokenPairs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//SubSystem/orders"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//SubSystem/savingOrders"/>
+    </genClasses>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//Token">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//Token/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//Token/address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//Token/decimal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//Token/tokenNetwork"/>
+    </genClasses>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//TokenBalance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//TokenBalance/balance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//TokenBalance/token"/>
+    </genClasses>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//TokenNetwork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//TokenNetwork/chainId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//TokenNetwork/rpc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//TokenNetwork/name"/>
+    </genClasses>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//TokenPair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//TokenPair/price"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//TokenPair/tokenA"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//TokenPair/tokenB"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//TokenPair/name"/>
+    </genClasses>
+    <genClasses ecoreClass="cryptoExchangeModelVersion1.ecore#//TransferRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//TransferRequest/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//TransferRequest/amount"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//TransferRequest/token"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cryptoExchangeModelVersion1.ecore#//TransferRequest/destination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cryptoExchangeModelVersion1.ecore#//TransferRequest/id"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

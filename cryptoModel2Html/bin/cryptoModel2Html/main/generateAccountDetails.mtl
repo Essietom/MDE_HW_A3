@@ -1,0 +1,79 @@
+[comment encoding = UTF-8 /]
+[module generateAccountDetails('https://cryptoExchangeVersion1/1.0')]
+
+
+
+[template public accountPage(aAccount : Account)]
+[comment @main/]
+[file ('Account'+aAccount.id + '.html', false, 'UTF-8')]
+<html>
+	<head>
+		<title>['Account'+aAccount.id/]</title>
+		<style>
+			table, th, td {
+			  border: 1px solid #B7C4DA;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<center style="height:70px"> </center>	
+		<center style="font-size:50">['Account'+aAccount.id+' Details'/]</center></br></br>	
+
+		<center>  These are information for the selected account</center>	
+		</br></br></br>
+
+		<center style="font-size:30"><u>Token Balances</u></center>
+		<center>  These are the token balances for every token in this account</center>	
+		<center style="margin:20px 50px 0px 50px;">
+		<table style="width:100%;text-align:center">
+				<tr>
+					<th>Token</th>
+					<th>Token Balance</th>
+				</tr>			
+			[for (tkb : TokenBalance | aAccount.tokensBalance)]
+					[tkb.generateTokenBalance()/]
+
+			[/for]
+		</table>
+		</center>
+
+
+		<center style="font-size:30"><u>Transfer</u></center>
+		<center>  These are the transfer requests made by this account  </center>	
+		<center style="margin:20px 50px 0px 50px;">
+		<table style="width:100%;text-align:center">
+				<tr>
+					<th>Token</th>
+					<th>Transfer Amount</th>
+					<th>Transfer Type</th>
+				</tr>			
+			[for (treq : TransferRequest | aAccount.transferRequest)]
+					[treq.generateTransferRequest()/]
+
+			[/for]
+		</table>
+		</center>
+
+	</body>
+
+</html>
+[/file]
+[/template]
+
+[template private generateTokenBalance(tokenBal : TokenBalance)]
+				<tr>
+					<td>[tokenBal.token.name/]</td>
+					<td>[tokenBal.balance/]</td>
+				</tr>
+[/template]
+
+
+[template private generateTransferRequest(transferReq : TransferRequest)]
+				<tr>
+					<td>[transferReq.token.name/]</td>
+					<td>[transferReq.amount/]</td>
+					<td>[transferReq.type/]</td>
+				</tr>
+[/template]

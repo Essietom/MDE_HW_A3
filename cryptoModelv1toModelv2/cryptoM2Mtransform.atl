@@ -1,0 +1,140 @@
+-- @path cryptov2=/MDE_HOMEWORK3/model/cryptoExchangeModelVersion2.ecore
+-- @path cryptov1=/MDE_HOMEWORK/model/cryptoExchangeModelVersion1.ecore
+
+module cryptoM2Mtransform;
+create OUT : cryptov2 from IN : cryptov1;
+
+helper context cryptov1!SubSystem def: isSpot() : Boolean =
+	if self.name.toString() = 'spot' then
+		true
+	else
+		false
+	endif;
+
+
+rule toknet {
+	from
+		v1 : cryptov1!TokenNetwork
+	to 
+		v2 : cryptov2!TokenNetwork (
+			name <- v1.name,
+			rpc <- v1.rpc,
+			chainId <- v1.chainId
+		)
+}
+
+rule tok {
+	from
+		v1 : cryptov1!Token
+	to 
+		v2 : cryptov2!Token (
+			name <- v1.name,
+			decimal <- v1.decimal,
+			address <- v1.address,
+			tokenNetwork <- v1.tokenNetwork
+		)
+}
+
+rule tokBalance {
+	from
+		v1 : cryptov1!TokenBalance
+	to 
+		v2 : cryptov2!TokenBalance (
+			token <- v1.token,
+			balance <- v1.balance
+		)
+}
+
+
+
+rule account {
+	from
+		v1 : cryptov1!Account
+	to 
+		v2 : cryptov2!Account (
+			id <- v1.id,
+			transferRequest <- v1.transferRequest,
+			wallet <- v3
+		),
+		v3: cryptov2!Wallet (
+		
+			tokensBalance <- v1.tokensBalance,
+			walletId <- v3.walletId
+		)
+}
+
+
+rule transferRequest {
+	from
+		v1 : cryptov1!TransferRequest
+	to 
+		v2 : cryptov2!Transfer (
+			destination <- v1.destination,
+			id <- v1.id,
+			token <- v1.token,
+			amount <- v1.amount,
+			type <- v1.type
+		)
+}
+
+rule savingOrder {
+	from
+		v1 : cryptov1!SavingOrder
+	to 
+		v2 : cryptov2!SaveToken (
+			amount <- v1.amount,
+			id <- v1.id,
+			interest <- v1.interest,
+			matureDate <- v1.matureDate,
+			token <- v1.token
+		)
+}
+
+rule order {
+	from
+		v1 : cryptov1!Order
+	to 
+		v2 : cryptov2!Order (
+			amount <- v1.amount,
+			price <- v1.price,
+			tokenA <- v1.tokenPair.tokenA,
+			tokenB <- v1.tokenPair.tokenB,
+			type <- v1.type,
+			account <- v1.account,
+			leverage <- v1.leverage.toString()
+		)
+}
+
+
+rule spotSubsystem {
+	from
+		v3 :cryptov1!CryptoExchange,
+		v1 : cryptov1!SubSystem(v1.isSpot())
+		
+	to 
+		v2 : cryptov2!SubSystem (
+			accounts <- v1.accounts,
+			name <- v1.name,
+			orders <- OclUndefined,
+			savingOrders <- v1.savingOrders,
+			tokenNetworks <- v3.tokenNetworks
+			
+		)
+}
+
+
+rule otherSubsystem {
+	from
+		v3 :cryptov1!CryptoExchange,
+		v1 : cryptov1!SubSystem(not v1.isSpot())
+		
+	to 
+		v2 : cryptov2!SubSystem (
+			accounts <- v1.accounts,
+			name <- v1.name,
+			orders <- v1.orders,
+			savingOrders <- v1.savingOrders,
+			tokenNetworks <- v3.tokenNetworks
+			
+		)
+}

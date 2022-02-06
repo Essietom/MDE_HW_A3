@@ -1,0 +1,87 @@
+[comment encoding = UTF-8 /]
+[module generate('https://cryptoExchangeVersion1/1.0')]
+[import cryptoModel2Html::main::generateSubsystemDetails /]
+
+
+[template public generateElement(aCryptoExchange : CryptoExchange)]
+[comment @main/]
+[file (aCryptoExchange.name.replaceAll(' ', '') + '.html', false, 'UTF-8')]
+<html>
+	<head>
+		<title>[aCryptoExchange.name/]</title>
+		<style>
+			table, th, td {
+			  border: 1px solid #B7C4DA;
+			}
+		</style>
+	</head>
+
+	<body>
+		<center style="height:70px"> </center>	
+		<center style="font-size:50">[aCryptoExchange.name + ' Crypto Exchange'/]</center></br></br>	
+
+		<center> This is [aCryptoExchange.name/] crypto exchange, on this platform, our users can buy and sell crypto currency, they can also save, transfer. Feel free to explore our options
+		<div>The Crypto Exchange consists of <strong>[aCryptoExchange.subSystem->size()/]</strong> subsystems.</div>
+		<div>The Crypto Exchange consists of <strong>[aCryptoExchange.tokens->size()/]</strong> tokens.</div>
+		<div>The Crypto Exchange consists of <strong>[aCryptoExchange.tokenNetworks->size()/]</strong> token networks.</div>
+
+		</center>	
+		</br></br></br>
+
+
+
+		<center style="font-size:30"><u>Our Subsystems</u></center>
+
+
+		<center style="margin:20px 50px 0px 50px;">
+		<table style="width:100%; text-align:center">
+				<tr>
+				[for (subSystem : SubSystem | aCryptoExchange.subSystem)]
+					<th style = "font-size:25px;"><a href="[subSystem.name +'.html'/]">[subSystem.name/]</a></th>
+					[if (subSystem.name.toString() = 'spot')]
+						<tr><td><center>  Spot trading is the most common form of trading, especially in crypto assets, and is the most basic form of investment. Spot trading is simply the direct purchase or sale of an asset such as a commodity, stock, bond, or even currency.</center>	</td></tr>
+					[elseif (subSystem.name.toString() = 'saving')]
+						<tr><td><center>  It is what it is! Just for savings</center></td>	</tr>
+					[elseif (subSystem.name.toString() = 'future')]
+						<tr><td><center>  Futures trading is similar to margin but different in a few key aspects. Firstly, when making a futures trade, traders buy or sell contracts representing the value of a specific cryptocurrency. This means that, unlike with margin trades, the trader does not own the underlying cryptocurrency. Instead, traders exchange a contract that sets an agreement to either buy or sell at a future date, hence the name.</center></td>	</tr>
+					[elseif (subSystem.name.toString() = 'margin')]
+						<tr><td><center>  Margin accounts first separate from spot accounts by allowing users to borrow funds. Using these borrowed funds, users can gain significant exposure to a cryptocurrency, this is also known as using leverage. The funds that were borrowed, in turn, earn interest for the lenders at a rate based on market demand.</center></td>	</tr>
+					[/if]
+				[/for]
+				</tr>
+		</table>
+		</center>
+
+
+		<center style="font-size:30"><u>Our Tokens</u></center>
+		<center>  These are the tokens that are available in our crypto exchange. Users can trade, save and transfer from these list of tokens</center>	
+		<center style="margin:20px 50px 0px 50px;">
+		<table style="width:100%;text-align:center">
+				<tr>
+					<th>Token</th>
+					<th>Token Address</th>
+					<th>Token Network</th>
+				</tr>			
+					[for (tk : Token | aCryptoExchange.tokens)]
+						[tk.generateTokenRow()/]
+					[/for]
+					
+		</table>
+		</center>
+	</body>
+
+</html>
+[/file]
+[/template]
+
+
+[template private generateTokenRow(token : Token)]
+				<tr>
+					<td>[token.name/]</td>
+					<td>[token.address/]</td>
+					<td>[token.tokenNetwork.name/]</td>
+				</tr>
+[/template]
+
+
+
